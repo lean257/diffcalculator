@@ -21,6 +21,7 @@ export default class Main extends Component {
     })
   }
   onClick(ev) {
+    // get the response from the API endpoint and save to local state
     axios.get(`/difference?number=${this.state.number}`)
     .then(res => {
       this.setState({
@@ -34,8 +35,8 @@ export default class Main extends Component {
   }
   render() {
     const { number, data } = this.state
-    let isDecimal = number % 1 !== 0
     // handle invalid input on the frontend
+    let isDecimal = number % 1 !== 0
     const isInvalidInput = isDecimal || number > 100 || number <= 0
     return (
       <div>
