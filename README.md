@@ -14,8 +14,8 @@ I follow airbnb ESlinter, without any semicolon for JS code
 1. Create a virtualenv and activate it
 ```
 virtualenv env && source env/bin/activate
-
-2. Clone me first!
+```
+2. Clone me
 ```
 git clone https://github.com/lean257/diffcalculator.git
 ```
