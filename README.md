@@ -60,6 +60,6 @@ npm test
 ```
 
 ### ToDo
-1. Research on how to simulate click in enzyme for testing semantic-ui components. None of suggestions on the internet has worked so far.
+1. Research on how to simulate click in enzyme for testing semantic-ui components. None of the suggestions on the internet has worked so far.
 (mount the Main component, find the Button that has class 'play', simulate click on it, expect click to have been called)
 2. Deploy the app for better UX
