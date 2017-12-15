@@ -11,26 +11,27 @@
 I follow airbnb ESlinter, without any semicolon for JS code
 
 ### Start me
-1. Clone me first!
+1. Create a virtualenv and activate it
+```
+virtualenv env && source env/bin/activate
+
+2. Clone me first!
 ```
 git clone https://github.com/lean257/diffcalculator.git
 ```
-2. Start a postres server (using docker)
+3. Start a postres server (using docker)
 ```
 docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```
-3. Create a database for your django project
+4. Create a database for your django project
 ```
 docker run -it --rm --link some-postgres:postgres postgres psql -h postgres -U postgres -c "CREATE DATABASE django"
 ```
 the password is `mysecretpassword`
 
 ### Start my backend
-1. Create a virtualenv and activate it
 ```
-virtualenv env && source env/bin/activate
-```
-2. Install requirements
+1. Install requirements
 ```
 pip install -r requirements.txt
 ```
