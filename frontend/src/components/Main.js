@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Icon, Label, Menu, Table, Input, Button } from 'semantic-ui-react'
+import { Icon, Menu, Table, Button, Input, Popup } from 'semantic-ui-react'
+import About from './About'
 
 export default class Main extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class Main extends Component {
     this.state = {
       datetime: Date.now(),
       value: 0,
-      number: 0,
+      number: 1,
       occurrences: 0
     }
     this.onClick = this.onClick.bind(this)
@@ -16,14 +17,14 @@ export default class Main extends Component {
   }
   addValue(event) {
     return this.setState({
-      value: event.target.value
+      number: event.target.value
     })
   }
   onClick(ev) {
-    axios.get(`/difference?number=${this.state.value}`)
+    axios.get(`/difference?number=${this.state.number}`)
     .then(res => {
-      console.log(res.data)
       this.setState({
+        data: res.data,
         datetime: res.data.datetime,
         value: res.data.value,
         number: res.data.number,
@@ -32,6 +33,9 @@ export default class Main extends Component {
     })
   }
   render() {
+    const { number, data } = this.state
+    let parsedNumber = parseInt(number)
+    const isInvalidInput = !Number.isInteger(parsedNumber) || parsedNumber > 100 || parsedNumber <= 0 || parsedNumber.toString() != number
     return (
       <div>
         <header>
@@ -41,13 +45,14 @@ export default class Main extends Component {
               I'm a Special Calculator!
             </Menu.Item>
             <Menu.Item>
-              <Input placeholder='Input a number' onChange={this.addValue} />
+              <Popup basic trigger={<Input error={isInvalidInput} placeholder='Input a number' onChange={this.addValue} />}
+              open={isInvalidInput} content='Please enter an integer from 1 to 100' />
             </Menu.Item>
             <Menu.Item>
-              <Button color='olive' onClick = {this.onClick} content='Play' />
+              <Button className='play' color='teal' onClick = {this.onClick} disabled={isInvalidInput}>Play</Button>
             </Menu.Item>
             <Menu.Item>
-              <Button color='purple' content='About' />
+              <About />
             </Menu.Item>
           </Menu>
         </header>
@@ -60,16 +65,26 @@ export default class Main extends Component {
               <Table.HeaderCell>Occurrence</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-           <Table.Body>
-            <Table.Row>
-              <Table.Cell>{this.state.datetime}</Table.Cell>
-              <Table.Cell>{this.state.number}</Table.Cell>
-              <Table.Cell>{this.state.value}</Table.Cell>
-              <Table.Cell>{this.state.occurrences}</Table.Cell>
-            </Table.Row>
-          </Table.Body>
+          <TableBody data={data}/>
         </Table>
       </div>
     )
+  }
+}
+
+const TableBody = ({data}) => {
+  if (data) {
+    return (
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>{data.datetime}</Table.Cell>
+          <Table.Cell>{data.number}</Table.Cell>
+          <Table.Cell>{data.value}</Table.Cell>
+          <Table.Cell>{data.occurrences}</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    )
+  } else {
+    return(<Table.Body></Table.Body>)
   }
 }
