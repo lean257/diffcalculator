@@ -34,8 +34,9 @@ export default class Main extends Component {
   }
   render() {
     const { number, data } = this.state
-    let parsedNumber = parseInt(number)
-    const isInvalidInput = !Number.isInteger(parsedNumber) || parsedNumber > 100 || parsedNumber <= 0 || parsedNumber.toString() != number
+    let isDecimal = number % 1 !== 0
+    // handle invalid input on the frontend
+    const isInvalidInput = isDecimal || number > 100 || number <= 0
     return (
       <div>
         <header>
@@ -45,11 +46,15 @@ export default class Main extends Component {
               I'm a Special Calculator!
             </Menu.Item>
             <Menu.Item>
-              <Popup basic trigger={<Input error={isInvalidInput} placeholder='Input a number' onChange={this.addValue} />}
-              open={isInvalidInput} content='Please enter an integer from 1 to 100' />
+              <Popup basic trigger={<Input error={isInvalidInput} 
+              placeholder='Input a number' 
+              onChange={this.addValue} />}
+              open={isInvalidInput} 
+              content='Please enter an integer from 1 to 100' />
             </Menu.Item>
             <Menu.Item>
-              <Button className='play' color='teal' onClick = {this.onClick} disabled={isInvalidInput}>Play</Button>
+              <Button className='play' color='teal' 
+              onClick = {this.onClick} disabled={isInvalidInput}>Play</Button>
             </Menu.Item>
             <Menu.Item>
               <About />
