@@ -11,13 +11,13 @@
 I follow airbnb ESlinter, without any semicolon for JS code
 
 ### Start me
-1. Create a virtualenv and activate it
-```
-virtualenv env && source env/bin/activate
-```
-2. Clone me
+1. Clone me
 ```
 git clone https://github.com/lean257/diffcalculator.git
+```
+2. Create a virtualenv and activate it
+```
+virtualenv env && source env/bin/activate
 ```
 3. Start a postres server (using docker)
 ```
