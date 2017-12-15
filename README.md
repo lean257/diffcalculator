@@ -64,5 +64,6 @@ npm test
 (mount the Main component, find the Button that has class 'play', simulate click on it, expect click to have been called)
 2. Deploy the app for better UX
 
+### Screenshot
 ![App](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/UI.png)
 ![Error Handling](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/error%20handling.png)
