@@ -30,7 +30,7 @@ docker run -it --rm --link some-postgres:postgres postgres psql -h postgres -U p
 the password is `mysecretpassword`
 
 ### Start my backend
-```
+
 1. Install requirements
 ```
 pip install -r requirements.txt
