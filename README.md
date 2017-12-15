@@ -19,7 +19,7 @@ git clone https://github.com/lean257/diffcalculator.git
 ```
 virtualenv env && source env/bin/activate
 ```
-3. Start a postres server (using docker)
+3. Start a postgres server (using docker)
 ```
 docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```
