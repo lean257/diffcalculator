@@ -1,6 +1,5 @@
 ### Hi! I'm a calculator built in Django and React
-![App](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/UI.png)
-![Error Handling](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/error%20handling.png)
+
 ### I calculate the difference between:
 1.) the sum of the squares of the first n natural numbers and 2.) the square of the sum of the same first n natural numbers, where n is guaranteed to be no greater than 100.
 
@@ -64,3 +63,6 @@ npm test
 1. Research on how to simulate click in enzyme for testing semantic-ui components. None of the suggestions on the internet has worked so far.
 (mount the Main component, find the Button that has class 'play', simulate click on it, expect click to have been called)
 2. Deploy the app for better UX
+
+![App](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/UI.png)
+![Error Handling](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/error%20handling.png)
