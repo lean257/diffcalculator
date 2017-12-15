@@ -6,7 +6,7 @@ import { shallow, mount } from 'enzyme'
 import { Table } from 'semantic-ui-react'
 import sinon from 'sinon'
 
-it('renders without crashing', () => {
+it('renders the App without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 })
