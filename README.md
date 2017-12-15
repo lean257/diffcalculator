@@ -1,5 +1,6 @@
 ### Hi! I'm a calculator built in Django and React
-
+![App](https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/UI.png)
+![Error Handling] (https://github.com/lean257/diffcalculator/blob/master/frontend/public/images/error%20handling.png)
 ### I calculate the difference between:
 1.) the sum of the squares of the first n natural numbers and 2.) the square of the sum of the same first n natural numbers, where n is guaranteed to be no greater than 100.
 
